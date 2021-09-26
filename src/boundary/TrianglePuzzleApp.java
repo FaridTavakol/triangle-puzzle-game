@@ -112,6 +112,15 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		JToggleButton tglbtn2 = new JToggleButton("");
+		tglbtn2.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				System.out.println("KeyPressed!");
+				nodeHandler.setNodeState("tglbtn2");
+			}
+		});
 
 		JToggleButton tglbtn4 = new JToggleButton("");
 

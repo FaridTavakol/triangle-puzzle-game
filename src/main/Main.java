@@ -14,6 +14,7 @@ public class Main {
 
 		TrianglePuzzleApp tpa = new TrianglePuzzleApp(m, tp);
 		tpa.setVisible(true);
+//		System.out.println(tp.node[4].getFriendNodeIdx(3));
 
 //		int[] friendNodes1 = new int[6];
 //		friendNodes1[0] = 1;
@@ -32,7 +33,7 @@ public class Main {
 //		System.out.println(node4.getNodeState());
 //		node4.setNodeState(true);
 //		System.out.println(node4.getNodeState());
-		System.out.println(tp.node[0].getNodeState());
+//		System.out.println(tp.node[0].getNodeState());
 
 	}
 }

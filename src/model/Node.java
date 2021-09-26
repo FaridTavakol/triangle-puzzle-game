@@ -2,15 +2,15 @@ package model;
 
 public class Node {
 	/* Constructor */
-	public Node(int node_idx, int[] friendNodes_idx, double[] centerCoordinates)
+	public Node(int node_idx, int[] friendNodes_idx)// , double[] centerCoordinates)
 	{
 		idx = node_idx;
 		state = false;
 		friendNodeArray = new int[friendNodes_idx.length];
 		friendNodeArray = friendNodes_idx;
 
-		x = centerCoordinates[0];
-		y = centerCoordinates[1];
+//		x = centerCoordinates[0];
+//		y = centerCoordinates[1];
 
 	}
 
@@ -19,8 +19,8 @@ public class Node {
 	// Zero means unselected, One means selected node
 	public boolean state;
 	// coordinates of the node
-	double x;
-	double y;
+//	double x;
+//	double y;
 
 	// index number for the node
 	int idx;
@@ -59,13 +59,13 @@ public class Node {
 	}
 
 	// Returning the x and y coordinates of center of each node
-	public double getXCoordinates()
-	{
-		return x;
-	}
-
-	public double getYCoordinates()
-	{
-		return y;
-	}
+//	public double getXCoordinates()
+//	{
+//		return x;
+//	}
+//
+//	public double getYCoordinates()
+//	{
+//		return y;
+//	}
 }
