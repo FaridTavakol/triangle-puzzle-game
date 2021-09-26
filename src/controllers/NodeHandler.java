@@ -1,21 +1,24 @@
 package controllers;
 
+import model.Model;
 import model.TrianglePuzzle;
 
 public class NodeHandler {
 //	Model model;
 	/* Attributes */
 	public TrianglePuzzle trianglePuzzle;
+	public Model model;
 
 	public enum node_names {
 		tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10
 	};
 
 	/* Constructor */
-	public NodeHandler(TrianglePuzzle tp)
+	public NodeHandler(Model m)
 	{
 
-		this.trianglePuzzle = tp;
+//		this.trianglePuzzle = tp;
+		this.model = m;
 	}
 
 	/* Methods */
@@ -27,16 +30,16 @@ public class NodeHandler {
 			if (s.equals(instance.toString()))
 			{
 				int idx = node_names.valueOf(s).ordinal();
-				if (!trianglePuzzle.node[idx].getNodeState())
+				if (!model.getPuzzle().node[idx].getNodeState())
 				{
-					trianglePuzzle.node[idx].setNodeState(true);
+					model.getPuzzle().node[idx].setNodeState(true);
 					System.out.println("state of the node changed to:");
-					System.out.println(trianglePuzzle.node[idx].getNodeState());
-				} else if (trianglePuzzle.node[idx].getNodeState())
+					System.out.println(model.getPuzzle().node[idx].getNodeState());
+				} else if (model.getPuzzle().node[idx].getNodeState())
 				{
-					trianglePuzzle.node[idx].setNodeState(false);
+					model.getPuzzle().node[idx].setNodeState(false);
 					System.out.println("state of the node changed to:");
-					System.out.println(trianglePuzzle.node[idx].getNodeState());
+					System.out.println(model.getPuzzle().node[idx].getNodeState());
 				}
 
 			}

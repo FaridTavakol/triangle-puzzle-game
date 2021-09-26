@@ -23,7 +23,7 @@ public class TrianglePuzzleApp extends JFrame {
 
 	/* Attributes */
 	private JPanel contentPane;
-	public TrianglePuzzle trianglePuzzle;
+//	public TrianglePuzzle trianglePuzzle;
 	public Model model;
 
 	/**
@@ -57,9 +57,9 @@ public class TrianglePuzzleApp extends JFrame {
 	{
 		this.model = m;
 
-		this.trianglePuzzle = tp;
+//		this.trianglePuzzle = tp;
 
-		NodeHandler nodeHandler = new NodeHandler(tp);
+		NodeHandler nodeHandler = new NodeHandler(m);
 
 		setTitle("Triangle Puzzle Application (c) 2021");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,9 +106,9 @@ public class TrianglePuzzleApp extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				System.out.println("KeyPressed!");
 				nodeHandler.setNodeState("tglbtn1");
 			}
+
 		});
 
 		JToggleButton tglbtn2 = new JToggleButton("");
@@ -117,26 +117,89 @@ public class TrianglePuzzleApp extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				System.out.println("KeyPressed!");
 				nodeHandler.setNodeState("tglbtn2");
 			}
 		});
 
 		JToggleButton tglbtn4 = new JToggleButton("");
+		tglbtn4.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn4");
+			}
+		});
 
 		JToggleButton tglbtn7 = new JToggleButton("");
+		tglbtn7.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn7");
+			}
+		});
 
 		JToggleButton tglbtn8 = new JToggleButton("");
+		tglbtn8.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn8");
+			}
+		});
 
 		JToggleButton tglbtn9 = new JToggleButton("");
+		tglbtn9.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn9");
+			}
+		});
 
 		JToggleButton tglbtn10 = new JToggleButton("");
+		tglbtn10.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn10");
+			}
+		});
 
 		JToggleButton tglbtn5 = new JToggleButton("");
+		tglbtn5.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn5");
+			}
+		});
 
 		JToggleButton tglbtn6 = new JToggleButton("");
+		tglbtn6.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn6");
+			}
+		});
 
 		JToggleButton tglbtn3 = new JToggleButton("");
+		tglbtn3.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				nodeHandler.setNodeState("tglbtn3");
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
 				.createSequentialGroup()
