@@ -15,12 +15,16 @@ import javax.swing.JToggleButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import controllers.NodeHandler;
 import model.Model;
+import model.TrianglePuzzle;
 
 public class TrianglePuzzleApp extends JFrame {
 
+	/* Attributes */
 	private JPanel contentPane;
-	Model model;
+	public TrianglePuzzle trianglePuzzle;
+	public Model model;
 
 	/**
 	 * Launch the application.
@@ -48,10 +52,15 @@ public class TrianglePuzzleApp extends JFrame {
 	 * 
 	 * @param m
 	 */
-	public TrianglePuzzleApp(Model m)
+	public TrianglePuzzleApp(Model m, TrianglePuzzle tp)
 
 	{
 		this.model = m;
+
+		this.trianglePuzzle = tp;
+
+		NodeHandler nodeHandler = new NodeHandler(tp);
+
 		setTitle("Triangle Puzzle Application (c) 2021");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 627, 388);
@@ -92,6 +101,15 @@ public class TrianglePuzzleApp extends JFrame {
 		JLabel lblCongratulatoryMessage = new JLabel("");
 
 		JToggleButton tglbtn1 = new JToggleButton("");
+		tglbtn1.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				System.out.println("KeyPressed!");
+				nodeHandler.setNodeState("tglbtn1");
+			}
+		});
 
 		JToggleButton tglbtn2 = new JToggleButton("");
 

@@ -2,21 +2,33 @@ package model;
 
 public class Model {
 
-	TrianglePuzzle trianglePuzzle;
-
 	// Constructor
 	public Model()
 	{
 		trianglePuzzle = new TrianglePuzzle();
+		score = 0;
+		bonusScore = 30;
 	}
 
 	/* Attributes */
 	static int score;
+	TrianglePuzzle trianglePuzzle;
+	private final int bonusScore;
 
 	/* Methods */
 	public TrianglePuzzle getPuzzle()
 	{
 		return trianglePuzzle;
+	}
+
+	public void setScore(int scoreValue)
+	{
+		score = scoreValue;
+	}
+
+	public void bonusScoreIncrease()
+	{
+		score += bonusScore;
 	}
 
 }
