@@ -5,7 +5,7 @@ public class Model {
 	TrianglePuzzle trianglePuzzle;
 
 	// Constructor
-	Model()
+	public Model()
 	{
 		trianglePuzzle = new TrianglePuzzle();
 	}

@@ -2,7 +2,7 @@ package model;
 
 public class Node {
 	/* Constructor */
-	Node(int node_idx, int[] friendNodes_idx)
+	public Node(int node_idx, int[] friendNodes_idx)
 	{
 		idx = node_idx;
 		state = false;
@@ -24,26 +24,32 @@ public class Node {
 	int[] friendNodeArray;
 
 	/* Methods */
-	// Method to return idx's of friend nodes
-	int[] getFriendNodeIdx()
+	// Method to return idx list of friend nodes
+	public int[] getFriendNodeIdxList()
 	{
 		return friendNodeArray;
 	}
 
+	// Method to return idx of a specific friend node
+	public int getFriendNodeIdx(int num)
+	{
+		return friendNodeArray[num];
+	}
+
 	// Method to get node idx
-	int getNodeIdx()
+	public int getNodeIdx()
 	{
 		return idx;
 	}
 
 	// Method to set node state
-	void setNodeState(boolean s)
+	public void setNodeState(boolean s)
 	{
 		this.state = s;
 	}
 
 	// Method to get node state
-	boolean getNodeState()
+	public boolean getNodeState()
 	{
 		return this.state;
 	}

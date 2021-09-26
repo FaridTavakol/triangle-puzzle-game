@@ -1,7 +1,6 @@
 package boundary;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,36 +15,43 @@ import javax.swing.JToggleButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import model.Model;
+
 public class TrianglePuzzleApp extends JFrame {
 
 	private JPanel contentPane;
+	Model model;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					TrianglePuzzleApp frame = new TrianglePuzzleApp();
-					frame.setVisible(true);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args)
+//	{
+//		EventQueue.invokeLater(new Runnable()
+//		{
+//			public void run()
+//			{
+//				try
+//				{
+//					TrianglePuzzleApp frame = new TrianglePuzzleApp();
+//					frame.setVisible(true);
+//				} catch (Exception e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
+	 * 
+	 * @param m
 	 */
-	public TrianglePuzzleApp()
+	public TrianglePuzzleApp(Model m)
+
 	{
+		this.model = m;
 		setTitle("Triangle Puzzle Application (c) 2021");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 627, 388);
