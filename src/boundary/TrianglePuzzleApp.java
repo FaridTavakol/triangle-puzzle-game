@@ -5,14 +5,11 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import controllers.NodeHandler;
@@ -28,6 +25,7 @@ public class TrianglePuzzleApp extends JFrame {
 	public Model model;
 	public NodeHandler nodeHandler;
 	public JToggleButton tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10;
+	private JPanel panel;
 
 	/**
 	 * Create the frame.
@@ -54,10 +52,12 @@ public class TrianglePuzzleApp extends JFrame {
 		setContentPane(contentPane);
 
 		JButton btnResetGame = new JButton("Reset Game");
+		btnResetGame.setBounds(456, 49, 119, 25);
 		btnResetGame.setForeground(SystemColor.text);
 		btnResetGame.setBackground(Color.DARK_GRAY);
 
 		JButton btnUnselectAll = new JButton("Unselect All");
+		btnUnselectAll.setBounds(456, 92, 117, 25);
 		btnUnselectAll.addActionListener(new ActionListener()
 		{
 			@Override
@@ -70,8 +70,10 @@ public class TrianglePuzzleApp extends JFrame {
 		btnUnselectAll.setForeground(Color.WHITE);
 
 		JLabel lblPlayerScore = new JLabel("0");
+		lblPlayerScore.setBounds(175, 340, 8, 15);
 
 		JButton btnSwapEdges = new JButton("Swap Edges");
+		btnSwapEdges.setBounds(456, 135, 120, 25);
 		btnSwapEdges.setForeground(Color.WHITE);
 		btnSwapEdges.setBackground(Color.DARK_GRAY);
 		btnSwapEdges.addActionListener(new ActionListener()
@@ -82,10 +84,13 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		JLabel lblScoreText = new JLabel("Score:");
+		lblScoreText.setBounds(112, 340, 45, 15);
 
 		JLabel lblCongratulatoryMessage = new JLabel("");
+		lblCongratulatoryMessage.setBounds(5, 340, 172, 0);
 
 		tglbtn1 = new JToggleButton("");
+		tglbtn1.setBounds(193, 17, 22, 21);
 		tglbtn1.addActionListener(new ActionListener()
 		{
 			@Override
@@ -97,6 +102,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn2 = new JToggleButton("");
+		tglbtn2.setBounds(153, 69, 22, 21);
 		tglbtn2.addActionListener(new ActionListener()
 		{
 			@Override
@@ -107,6 +113,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn4 = new JToggleButton("");
+		tglbtn4.setBounds(112, 117, 22, 21);
 		tglbtn4.addActionListener(new ActionListener()
 		{
 			@Override
@@ -117,6 +124,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn7 = new JToggleButton("");
+		tglbtn7.setBounds(77, 168, 22, 21);
 		tglbtn7.addActionListener(new ActionListener()
 		{
 			@Override
@@ -127,6 +135,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn8 = new JToggleButton("");
+		tglbtn8.setBounds(165, 168, 22, 21);
 		tglbtn8.addActionListener(new ActionListener()
 		{
 			@Override
@@ -137,6 +146,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn9 = new JToggleButton("");
+		tglbtn9.setBounds(240, 168, 22, 21);
 		tglbtn9.addActionListener(new ActionListener()
 		{
 			@Override
@@ -147,6 +157,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn10 = new JToggleButton("");
+		tglbtn10.setBounds(309, 168, 22, 21);
 		tglbtn10.addActionListener(new ActionListener()
 		{
 			@Override
@@ -157,6 +168,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn5 = new JToggleButton("");
+		tglbtn5.setBounds(193, 117, 22, 21);
 		tglbtn5.addActionListener(new ActionListener()
 		{
 			@Override
@@ -167,6 +179,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn6 = new JToggleButton("");
+		tglbtn6.setBounds(268, 117, 22, 21);
 		tglbtn6.addActionListener(new ActionListener()
 		{
 			@Override
@@ -177,6 +190,7 @@ public class TrianglePuzzleApp extends JFrame {
 		});
 
 		tglbtn3 = new JToggleButton("");
+		tglbtn3.setBounds(232, 69, 22, 21);
 		tglbtn3.addActionListener(new ActionListener()
 		{
 			@Override
@@ -185,86 +199,27 @@ public class TrianglePuzzleApp extends JFrame {
 				nodeHandler.setNodeState("tglbtn3");
 			}
 		});
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup()
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
-						.createSequentialGroup().addGap(36)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
-								.createParallelGroup(Alignment.TRAILING, false)
-								.addGroup(gl_contentPane.createSequentialGroup().addGap(36)
-										.addComponent(tglbtn7, GroupLayout.PREFERRED_SIZE, 22,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(tglbtn8, GroupLayout.PREFERRED_SIZE, 22,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup().addGap(71).addGroup(gl_contentPane
-										.createParallelGroup(Alignment.LEADING)
-										.addComponent(tglbtn4, GroupLayout.PREFERRED_SIZE, 22,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_contentPane.createSequentialGroup().addComponent(lblScoreText)
-												.addGap(18).addComponent(lblPlayerScore)))
-										.addGap(4)))
-								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(tglbtn2, GroupLayout.PREFERRED_SIZE, 22,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(12)))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup().addGap(47).addComponent(tglbtn9,
-										GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup().addGap(39).addComponent(tglbtn3,
-										GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-								.addComponent(tglbtn5, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tglbtn1, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED)).addComponent(lblCongratulatoryMessage,
-								Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-						.createSequentialGroup().addGap(6)
-						.addComponent(tglbtn6, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE).addGap(166)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addComponent(btnSwapEdges)
-								.addComponent(btnUnselectAll).addComponent(btnResetGame)))
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(47).addComponent(tglbtn10,
-								GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)))
-				.addContainerGap(78, Short.MAX_VALUE)));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup()
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(44).addComponent(btnResetGame)
-								.addGap(18).addComponent(btnUnselectAll).addGap(18).addComponent(btnSwapEdges))
-						.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
-								.addComponent(tglbtn1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-								.addGap(31)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(tglbtn3, GroupLayout.PREFERRED_SIZE, 21,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(tglbtn2, GroupLayout.PREFERRED_SIZE, 21,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(27)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(tglbtn6, GroupLayout.PREFERRED_SIZE, 21,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(tglbtn4, GroupLayout.PREFERRED_SIZE, 21,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(tglbtn5, GroupLayout.PREFERRED_SIZE, 21,
-																GroupLayout.PREFERRED_SIZE))))))
-				.addGap(8)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(tglbtn10, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(tglbtn8, GroupLayout.PREFERRED_SIZE, 21,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(tglbtn7, GroupLayout.PREFERRED_SIZE, 21,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(121)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblPlayerScore).addComponent(lblScoreText)
-										.addComponent(lblCongratulatoryMessage)))
-						.addComponent(tglbtn9, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
-				.addContainerGap(28, Short.MAX_VALUE)));
-		contentPane.setLayout(gl_contentPane);
+
+		panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBounds(35, 0, 363, 245);
+		contentPane.setLayout(null);
+		contentPane.add(tglbtn4);
+		contentPane.add(lblScoreText);
+		contentPane.add(lblPlayerScore);
+		contentPane.add(tglbtn7);
+		contentPane.add(tglbtn8);
+		contentPane.add(tglbtn2);
+		contentPane.add(tglbtn9);
+		contentPane.add(tglbtn3);
+		contentPane.add(tglbtn5);
+		contentPane.add(tglbtn1);
+		contentPane.add(lblCongratulatoryMessage);
+		contentPane.add(tglbtn6);
+		contentPane.add(btnSwapEdges);
+		contentPane.add(btnUnselectAll);
+		contentPane.add(btnResetGame);
+		contentPane.add(tglbtn10);
+		contentPane.add(panel);
 	}
 }
