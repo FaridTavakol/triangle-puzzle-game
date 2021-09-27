@@ -68,12 +68,12 @@ public class EdgeDrawer extends JPanel {
 	}
 
 	// Method to retrieve the color of each edge
-	public void setColor(Edge edge, int i, Graphics g2d)
+	public void setColor(Edge edge, Graphics g2d)
 	{
-		if (model.getPuzzle().edge[i].color.equals("red"))
+		if (model.getPuzzle().edge[edge.getEdgeIdx()].color.equals("red"))
 		{
 			g2d.setColor(Color.red);
-		} else if (model.getPuzzle().edge[i].color.equals("blue"))
+		} else if (model.getPuzzle().edge[edge.getEdgeIdx()].color.equals("blue"))
 		{
 			g2d.setColor(Color.blue);
 		} else
@@ -104,18 +104,20 @@ public class EdgeDrawer extends JPanel {
 
 	}
 
+	// Method to draw all edges
 	public void drawAllEdges(Graphics g2d)
 	{
 
 		for (int i = 0; i < model.getPuzzle().edge.length; i++)
 		{
-			setColor(model.getPuzzle().edge[i], 0, g2d);
+			setColor(model.getPuzzle().edge[i], g2d);
 			drawEdge(model.getPuzzle().edge[i], g2d);
 
 		}
 
 	}
 
+	// Method to draw an edge
 	public void drawEdge(Edge edge, Graphics g2d)
 	{
 		int[] nodeIdx = edge.getNodeIdx();
