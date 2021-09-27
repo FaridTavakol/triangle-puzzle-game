@@ -20,12 +20,12 @@ import model.TrianglePuzzle;
 public class TrianglePuzzleApp extends JFrame {
 
 	/* Attributes */
-	private JPanel contentPane;
+	public JPanel contentPane;
 //	public TrianglePuzzle trianglePuzzle;
 	public Model model;
 	public NodeHandler nodeHandler;
 	public JToggleButton tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10;
-	private JPanel panel;
+	private EdgeDrawer panel;
 
 	/**
 	 * Create the frame.
@@ -200,7 +200,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		panel = new JPanel();
+		panel = new EdgeDrawer(m, TrianglePuzzleApp.this);
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(35, 0, 363, 245);
 		contentPane.setLayout(null);
