@@ -21,12 +21,16 @@ public class EdgeDrawer extends JPanel {
 	{
 		this.model = m;
 		this.trianglePuzzleApp = tpa;
+		this.tglBtnBounds = new Rectangle[10];
+		this.tglBtnCenter = new Point[10];
 
 	}
 
 	/* Attributes */
 	public Model model;
 	public TrianglePuzzleApp trianglePuzzleApp;
+	public Rectangle tglBtnBounds[];
+	public Point tglBtnCenter[];
 
 	/* Methods */
 	@Override
@@ -43,49 +47,23 @@ public class EdgeDrawer extends JPanel {
 
 		// Draw the Edge from the center of one node to another
 //		g2d.setColor(Color.red);
+
+		setTglButtonBounds();
+		setTglButtonCenter();
 		// Setting the thickness of the edges
 		g2d.setStroke(new BasicStroke(5));
-
-		Rectangle tglBtn1Bounds = trianglePuzzleApp.tglbtn1.getBounds();
-		Point tglBtn1Center = center(tglBtn1Bounds);
-
-		Rectangle tglBtn2Bounds = trianglePuzzleApp.tglbtn2.getBounds();
-		Point tglBtn2Center = center(tglBtn2Bounds);
-
-		Rectangle tglBtn3Bounds = trianglePuzzleApp.tglbtn3.getBounds();
-		Point tglBtn3Center = center(tglBtn3Bounds);
-
-		Rectangle tglBtn4Bounds = trianglePuzzleApp.tglbtn4.getBounds();
-		Point tglBtn4Center = center(tglBtn4Bounds);
-
-		Rectangle tglBtn5Bounds = trianglePuzzleApp.tglbtn5.getBounds();
-		Point tglBtn5Center = center(tglBtn5Bounds);
-
-		Rectangle tglBtn6Bounds = trianglePuzzleApp.tglbtn6.getBounds();
-		Point tglBtn6Center = center(tglBtn6Bounds);
-
-		Rectangle tglBtn7Bounds = trianglePuzzleApp.tglbtn7.getBounds();
-		Point tglBtn7Center = center(tglBtn7Bounds);
-
-		Rectangle tglBtn8Bounds = trianglePuzzleApp.tglbtn8.getBounds();
-		Point tglBtn8Center = center(tglBtn8Bounds);
-
-		Rectangle tglBtn9Bounds = trianglePuzzleApp.tglbtn9.getBounds();
-		Point tglBtn9Center = center(tglBtn9Bounds);
-
-		Rectangle tglBtn10Bounds = trianglePuzzleApp.tglbtn10.getBounds();
-		Point tglBtn10Center = center(tglBtn10Bounds);
-
+		drawAllEdges(g2d);
 //		g2d.drawLine(20, 20, 2500, 2500);
 
 	}
 
-	// Method to find the center of each node Point(x,y)
-	protected Point center(Rectangle bounds)
+	// Method to find the center of each node and return as Point(x,y), Offset value
+	// is for matching the drawn line with the nodes
+	protected Point calculateCenter(Rectangle bounds, int xOffset, int yOffset)
 	{
 		Point point = new Point();
-		point.x = bounds.x + (bounds.width / 2);
-		point.y = bounds.y + (bounds.height / 2);
+		point.x = (bounds.x + (bounds.width / 2)) - xOffset;
+		point.y = (bounds.y + (bounds.height / 2)) - yOffset;
 		return point;
 	}
 
@@ -102,13 +80,48 @@ public class EdgeDrawer extends JPanel {
 		{
 			g2d.setColor(Color.green);
 		}
+
 	}
 
-	public void drawAllEdges(Graphics g2d, Model m)
+	// Stores the bound for each node
+	public void setTglButtonBounds()
+	{
+		for (int i = 0; i < tglBtnBounds.length; i++)
+		{
+			tglBtnBounds[i] = trianglePuzzleApp.tglButtonArray[i].getBounds();
+		}
+
+	}
+
+	// Method to populate the toggle center array with the center values of each
+	// node
+	public void setTglButtonCenter()
+	{
+		for (int i = 0; i < tglBtnCenter.length; i++)
+		{
+			tglBtnCenter[i] = calculateCenter(tglBtnBounds[i], 30, 0);
+		}
+
+	}
+
+	public void drawAllEdges(Graphics g2d)
 	{
 
-		setColor(model.getPuzzle().edge[2], 0, g2d);
-		g2d.drawLine(tglBtn1Center.x - 30, tglBtn1Center.y, tglBtn2Center.x - 30, tglBtn2Center.y);
+		for (int i = 0; i < model.getPuzzle().edge.length; i++)
+		{
+			setColor(model.getPuzzle().edge[i], 0, g2d);
+			drawEdge(model.getPuzzle().edge[i], g2d);
+
+		}
+
+	}
+
+	public void drawEdge(Edge edge, Graphics g2d)
+	{
+		int[] nodeIdx = edge.getNodeIdx();
+		g2d.drawLine(tglBtnCenter[nodeIdx[0]].x, tglBtnCenter[nodeIdx[0]].y, tglBtnCenter[nodeIdx[1]].x,
+				tglBtnCenter[nodeIdx[1]].y);
+
 	}
 
 }

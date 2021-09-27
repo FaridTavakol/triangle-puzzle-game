@@ -25,6 +25,7 @@ public class TrianglePuzzleApp extends JFrame {
 	public Model model;
 	public NodeHandler nodeHandler;
 	public JToggleButton tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10;
+	public JToggleButton[] tglButtonArray;
 	private EdgeDrawer panel;
 
 	/**
@@ -221,5 +222,17 @@ public class TrianglePuzzleApp extends JFrame {
 		contentPane.add(btnResetGame);
 		contentPane.add(tglbtn10);
 		contentPane.add(panel);
+		// Creating the array containing all the nodes
+		tglButtonArray = new JToggleButton[10];
+		tglButtonArray[0] = tglbtn1;
+		tglButtonArray[1] = tglbtn2;
+		tglButtonArray[2] = tglbtn3;
+		tglButtonArray[3] = tglbtn4;
+		tglButtonArray[4] = tglbtn5;
+		tglButtonArray[5] = tglbtn6;
+		tglButtonArray[6] = tglbtn7;
+		tglButtonArray[7] = tglbtn8;
+		tglButtonArray[8] = tglbtn9;
+		tglButtonArray[9] = tglbtn10;
 	}
 }

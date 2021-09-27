@@ -22,4 +22,17 @@ public class Edge {
 		this.color = s;
 	}
 
+	public int[] getNodeIdx()
+	{
+		int[] nodeIdx = new int[2];
+		nodeIdx[0] = node1.getNodeIdx();
+		nodeIdx[1] = node2.getNodeIdx();
+		return nodeIdx;
+	}
+
+	public int getEdgeIdx()
+	{
+		return idx;
+	}
+
 }
