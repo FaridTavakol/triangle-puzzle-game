@@ -30,13 +30,11 @@ public class NodeHandler {
 				if (!model.getPuzzle().node[idx].getNodeState())
 				{
 					model.getPuzzle().node[idx].setNodeState(true);
-					System.out.println("state of the node changed to:");
-					System.out.println(model.getPuzzle().node[idx].getNodeState());
+
 				} else if (model.getPuzzle().node[idx].getNodeState())
 				{
 					model.getPuzzle().node[idx].setNodeState(false);
-					System.out.println("state of the node changed to:");
-					System.out.println(model.getPuzzle().node[idx].getNodeState());
+
 				}
 
 			}
@@ -57,5 +55,23 @@ public class NodeHandler {
 
 		}
 
+	}
+
+	public int checkNumberOfActiveNodes()
+	{
+		int activeNodes = 0;
+		for (node_names instance : node_names.values())
+		{
+			int idx = node_names.valueOf(instance.toString()).ordinal();
+			// Changing state of each node to false (Unselected)
+			if (model.getPuzzle().node[idx].state == true)
+			{
+				activeNodes++;
+			}
+
+		}
+		System.out.println(activeNodes);
+
+		return activeNodes;
 	}
 }

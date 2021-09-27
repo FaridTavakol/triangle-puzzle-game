@@ -21,12 +21,15 @@ public class TrianglePuzzleApp extends JFrame {
 
 	/* Attributes */
 	public JPanel contentPane;
-//	public TrianglePuzzle trianglePuzzle;
+	// public TrianglePuzzle trianglePuzzle;
 	public Model model;
 	public NodeHandler nodeHandler;
 	public JToggleButton tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10;
 	public JToggleButton[] tglButtonArray;
 	private EdgeDrawer panel;
+
+	// Number of active nodes
+	int activeNodes = 0;
 
 	/**
 	 * Create the frame.
@@ -98,6 +101,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn1");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 
 		});
@@ -110,6 +115,9 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn2");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
+
 			}
 		});
 
@@ -121,6 +129,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn4");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -132,6 +142,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn7");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -143,6 +155,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn8");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -154,6 +168,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn9");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -165,6 +181,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn10");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -176,6 +194,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn5");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -187,6 +207,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn6");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
@@ -198,6 +220,8 @@ public class TrianglePuzzleApp extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				nodeHandler.setNodeState("tglbtn3");
+				// It can return values between 1 to 10
+				activeNodes = nodeHandler.checkNumberOfActiveNodes();
 			}
 		});
 
