@@ -57,7 +57,7 @@ public class NodeHandler {
 
 	}
 
-	public int checkNumberOfActiveNodes()
+	public int getNumberOfActiveNodes()
 	{
 		int activeNodes = 0;
 		for (node_names instance : node_names.values())
