@@ -16,6 +16,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import controllers.NodeHandler;
+import controllers.UnselectNodesController;
 import model.Model;
 import model.TrianglePuzzle;
 
@@ -25,27 +26,8 @@ public class TrianglePuzzleApp extends JFrame {
 	private JPanel contentPane;
 //	public TrianglePuzzle trianglePuzzle;
 	public Model model;
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args)
-//	{
-//		EventQueue.invokeLater(new Runnable()
-//		{
-//			public void run()
-//			{
-//				try
-//				{
-//					TrianglePuzzleApp frame = new TrianglePuzzleApp();
-//					frame.setVisible(true);
-//				} catch (Exception e)
-//				{
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public NodeHandler nodeHandler;
+	public JToggleButton tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10;
 
 	/**
 	 * Create the frame.
@@ -59,7 +41,8 @@ public class TrianglePuzzleApp extends JFrame {
 
 //		this.trianglePuzzle = tp;
 
-		NodeHandler nodeHandler = new NodeHandler(m);
+		nodeHandler = new NodeHandler(m);
+		UnselectNodesController unselectNodesCtrl = new UnselectNodesController(m, TrianglePuzzleApp.this);
 
 		setTitle("Triangle Puzzle Application (c) 2021");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,8 +60,10 @@ public class TrianglePuzzleApp extends JFrame {
 		JButton btnUnselectAll = new JButton("Unselect All");
 		btnUnselectAll.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(ActionEvent arg0)
+			@Override
+			public void actionPerformed(ActionEvent e)
 			{
+				unselectNodesCtrl.unselectAllNodes();
 			}
 		});
 		btnUnselectAll.setBackground(Color.DARK_GRAY);
@@ -100,7 +85,7 @@ public class TrianglePuzzleApp extends JFrame {
 
 		JLabel lblCongratulatoryMessage = new JLabel("");
 
-		JToggleButton tglbtn1 = new JToggleButton("");
+		tglbtn1 = new JToggleButton("");
 		tglbtn1.addActionListener(new ActionListener()
 		{
 			@Override
@@ -111,7 +96,7 @@ public class TrianglePuzzleApp extends JFrame {
 
 		});
 
-		JToggleButton tglbtn2 = new JToggleButton("");
+		tglbtn2 = new JToggleButton("");
 		tglbtn2.addActionListener(new ActionListener()
 		{
 			@Override
@@ -121,7 +106,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn4 = new JToggleButton("");
+		tglbtn4 = new JToggleButton("");
 		tglbtn4.addActionListener(new ActionListener()
 		{
 			@Override
@@ -131,7 +116,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn7 = new JToggleButton("");
+		tglbtn7 = new JToggleButton("");
 		tglbtn7.addActionListener(new ActionListener()
 		{
 			@Override
@@ -141,7 +126,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn8 = new JToggleButton("");
+		tglbtn8 = new JToggleButton("");
 		tglbtn8.addActionListener(new ActionListener()
 		{
 			@Override
@@ -151,7 +136,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn9 = new JToggleButton("");
+		tglbtn9 = new JToggleButton("");
 		tglbtn9.addActionListener(new ActionListener()
 		{
 			@Override
@@ -161,7 +146,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn10 = new JToggleButton("");
+		tglbtn10 = new JToggleButton("");
 		tglbtn10.addActionListener(new ActionListener()
 		{
 			@Override
@@ -171,7 +156,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn5 = new JToggleButton("");
+		tglbtn5 = new JToggleButton("");
 		tglbtn5.addActionListener(new ActionListener()
 		{
 			@Override
@@ -181,7 +166,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn6 = new JToggleButton("");
+		tglbtn6 = new JToggleButton("");
 		tglbtn6.addActionListener(new ActionListener()
 		{
 			@Override
@@ -191,7 +176,7 @@ public class TrianglePuzzleApp extends JFrame {
 			}
 		});
 
-		JToggleButton tglbtn3 = new JToggleButton("");
+		tglbtn3 = new JToggleButton("");
 		tglbtn3.addActionListener(new ActionListener()
 		{
 			@Override

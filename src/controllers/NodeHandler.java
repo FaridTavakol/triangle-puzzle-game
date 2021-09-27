@@ -1,12 +1,10 @@
 package controllers;
 
 import model.Model;
-import model.TrianglePuzzle;
 
 public class NodeHandler {
 //	Model model;
 	/* Attributes */
-	public TrianglePuzzle trianglePuzzle;
 	public Model model;
 
 	public enum node_names {
@@ -17,7 +15,6 @@ public class NodeHandler {
 	public NodeHandler(Model m)
 	{
 
-//		this.trianglePuzzle = tp;
 		this.model = m;
 	}
 
@@ -43,6 +40,20 @@ public class NodeHandler {
 				}
 
 			}
+
+		}
+
+	}
+
+	// Method which is invoked by the UselectNodesController which changes the state
+	// of all nodes to False
+	public void setAllNodeStateToFalse()
+	{
+		for (node_names instance : node_names.values())
+		{
+			int idx = node_names.valueOf(instance.toString()).ordinal();
+			// Changing state of each node to false (Unselected)
+			model.getPuzzle().node[idx].state = false;
 
 		}
 
