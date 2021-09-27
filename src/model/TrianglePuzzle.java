@@ -4,8 +4,6 @@ public class TrianglePuzzle {
 	/* Constructor */
 	public TrianglePuzzle()
 	{
-		node = new Node[10];
-
 		// node0
 		int[] friendNodes0 = new int[2];
 		friendNodes0[0] = 1; // idx for neighbor node for node0 in this case refers to node 1
@@ -74,7 +72,6 @@ public class TrianglePuzzle {
 		node[9] = new Node(9, friendNodes9); // creating node9 with the info regarding all its neighboring nodes
 
 		// Creating Edges
-		edge = new Edge[18];
 		edge[0] = new Edge(node[0], node[1], 0, "red");//
 		edge[1] = new Edge(node[0], node[2], 1, "red");//
 		edge[2] = new Edge(node[1], node[2], 2, "green");//
@@ -94,11 +91,25 @@ public class TrianglePuzzle {
 		edge[16] = new Edge(node[7], node[8], 16, "green");//
 		edge[17] = new Edge(node[8], node[9], 17, "green");//
 
+		// Creating Triangles
+		// T1
+		triangle[0] = new Triangle(1, "red", edge[0], edge[1], edge[2]);
+		// T2
+		triangle[1] = new Triangle(2, "blue", edge[3], edge[4], edge[7]);
+		// T3
+		triangle[2] = new Triangle(3, "green", edge[5], edge[6], edge[8]);
+		// T4
+		triangle[3] = new Triangle(4, "green", edge[9], edge[10], edge[15]);
+		// T5
+		triangle[4] = new Triangle(5, "red", edge[11], edge[12], edge[16]);
+		// T6
+		triangle[5] = new Triangle(6, "blue", edge[13], edge[14], edge[17]);
 	}
 
 	/* Attributes */
-	public Node[] node;
-	public Edge[] edge;
+	public Node[] node = new Node[10];
+	public Edge[] edge = new Edge[18];
+	public Triangle[] triangle = new Triangle[6];
 
 	/* Methods */
 	//

@@ -35,4 +35,9 @@ public class Edge {
 		return idx;
 	}
 
+	public String getColor()
+	{
+		return color;
+	}
+
 }

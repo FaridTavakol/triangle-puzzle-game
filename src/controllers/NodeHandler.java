@@ -71,6 +71,14 @@ public class NodeHandler {
 
 		}
 		System.out.println(activeNodes);
+		if (activeNodes == 3)
+		{
+			return boolean CheckIfSwapIsPossible(){
+				
+			}
+			if boolean is currect swap
+			(CheckAllTrianglesforsimilarEdgeColors())
+		}
 
 		return activeNodes;
 	}
