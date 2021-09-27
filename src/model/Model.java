@@ -14,6 +14,7 @@ public class Model {
 	static int score;
 	TrianglePuzzle trianglePuzzle;
 	private final int bonusScore;
+	public Edge edge;
 
 	/* Methods */
 	public TrianglePuzzle getPuzzle()
