@@ -63,13 +63,19 @@ public class Node {
 	public boolean adjacentNode(int idx)
 	{
 		boolean result = false;
+		System.out.println("Length is:");
+		System.out.print(friendNodeArray.length);
+		System.out.println("");
 		for (int i = 0; i < friendNodeArray.length; i++)
 		{
 			if (friendNodeArray[i] == idx)
 			{
 				result = true;
+				break;
 			}
 		}
+		System.out.println("result is :");
+		System.out.print(result);
 
 		return result;
 	}

@@ -13,6 +13,7 @@ import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
 import controllers.NodeHandler;
+import controllers.SwapEdgeController;
 import controllers.UnselectNodesController;
 import model.Model;
 import model.TrianglePuzzle;
@@ -41,10 +42,9 @@ public class TrianglePuzzleApp extends JFrame {
 	{
 		this.model = m;
 
-//		this.trianglePuzzle = tp;
-
 		nodeHandler = new NodeHandler(m);
 		UnselectNodesController unselectNodesCtrl = new UnselectNodesController(m, TrianglePuzzleApp.this);
+		SwapEdgeController swapEdgeCtrl = new SwapEdgeController(model, TrianglePuzzleApp.this, nodeHandler);
 
 		setTitle("Triangle Puzzle Application (c) 2021");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,8 +94,19 @@ public class TrianglePuzzleApp extends JFrame {
 		btnSwapEdges.setBackground(Color.DARK_GRAY);
 		btnSwapEdges.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(ActionEvent arg0)
+			@Override
+			public void actionPerformed(ActionEvent e)
 			{
+
+				swapEdgeCtrl.SwapEdge();
+				/*
+				 * / after successful excecution both active nodes and unselectAllNodes should
+				 * be envoked/
+				 */
+//				unselectNodesCtrl.unselectAllNodes();
+				// It should return value of 0
+//				activeNodes = nodeHandler.getNumberOfActiveNodes();
+
 			}
 		});
 
