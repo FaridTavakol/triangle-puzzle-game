@@ -71,15 +71,50 @@ public class NodeHandler {
 
 		}
 		System.out.println(activeNodes);
-		if (activeNodes == 3)
+		return activeNodes;
+	}
+
+	// Node adjacency check
+	// Will return 3 scenarios:
+	// 0 when the nodes are not adjacent
+	// 1 when the nodes are adjacent but do not form a triangle(special case)
+	// 2 when all three nodes form a triangle (each node is adjacent with the other
+	// two nodes)
+	public int checkNodeAdjacency()
+	{
+		int adjacency = 0;
+		// Since when this method is called it is ensured that there are exactly 3 nodes
+		// active
+		int[] activeNodes = new int[3];
+		for (node_names instance : node_names.values())
 		{
-			return boolean CheckIfSwapIsPossible(){
-				
+			int i = 0;
+
+			int idx = node_names.valueOf(instance.toString()).ordinal();
+
+			// This loop picks the idx of the 3 active nodes
+			if (model.getPuzzle().node[idx].state == true)
+			{
+				activeNodes[i] = idx;
+				i++;
 			}
-			if boolean is currect swap
-			(CheckAllTrianglesforsimilarEdgeColors())
+		}
+		// Checking adjacency logic
+		// In the case where the selected nodes form a triangle
+		if (model.getPuzzle().node[activeNodes[0]].adjacentNode(1)
+				&& model.getPuzzle().node[activeNodes[0]].adjacentNode(2)
+				&& model.getPuzzle().node[activeNodes[1]].adjacentNode(2))
+		{
+			adjacency = 2;
+
+		}
+		// In the case where the selected nodes form a triangle
+		else if (model.getPuzzle().node[activeNodes[0]].adjacentNode(1)
+				&& model.getPuzzle().node[activeNodes[0]].adjacentNode(2))
+		{
+			adjacency = 1;
 		}
 
-		return activeNodes;
+		return adjacency;
 	}
 }

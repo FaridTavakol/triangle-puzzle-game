@@ -29,7 +29,7 @@ public class TrianglePuzzleApp extends JFrame {
 	private EdgeDrawer panel;
 
 	// Number of active nodes
-	int activeNodes = 0;
+	private int activeNodes = 0;
 
 	/**
 	 * Create the frame.
@@ -271,4 +271,10 @@ public class TrianglePuzzleApp extends JFrame {
 		tglButtonArray[8] = tglbtn9;
 		tglButtonArray[9] = tglbtn10;
 	}
+
+	public int getActiveNodes()
+	{
+		return activeNodes;
+	}
+
 }

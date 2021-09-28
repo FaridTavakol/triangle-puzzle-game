@@ -58,6 +58,22 @@ public class Node {
 		return this.state;
 	}
 
+	// Given a node index checks whether the node is adjacent to the current node or
+	// not
+	public boolean adjacentNode(int idx)
+	{
+		boolean result = false;
+		for (int i = 0; i < friendNodeArray.length; i++)
+		{
+			if (friendNodeArray[i] == idx)
+			{
+				result = true;
+			}
+		}
+
+		return result;
+	}
+
 	// Returning the x and y coordinates of center of each node
 //	public double getXCoordinates()
 //	{
