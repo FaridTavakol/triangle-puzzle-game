@@ -95,13 +95,8 @@ public class NodeHandler {
 			if (model.getPuzzle().node[idx].state == true)
 			{
 				activeNodes[i] = idx;
-				System.out.println("");
-				System.out.print(activeNodes[i]);
-				System.out.println("");
-				if (i != 2)
-				{
-					i++;
-				}
+				i++;
+
 			}
 		}
 
@@ -114,13 +109,13 @@ public class NodeHandler {
 			adjacency = 2;
 
 		}
-		// In the case where the selected nodes form a triangle
+		// In the case where the selected nodes have a single mutual node
 		else if (model.getPuzzle().node[activeNodes[0]].adjacentNode(activeNodes[1])
 				&& model.getPuzzle().node[activeNodes[0]].adjacentNode(activeNodes[2])
 				|| model.getPuzzle().node[activeNodes[1]].adjacentNode(activeNodes[2])
-						&& model.getPuzzle().node[activeNodes[1]].adjacentNode(0)
+						&& model.getPuzzle().node[activeNodes[1]].adjacentNode(activeNodes[0])
 				|| model.getPuzzle().node[activeNodes[2]].adjacentNode(activeNodes[1])
-						&& model.getPuzzle().node[activeNodes[2]].adjacentNode(0))
+						&& model.getPuzzle().node[activeNodes[2]].adjacentNode(activeNodes[0]))
 		{
 
 			adjacency = 1;

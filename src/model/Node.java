@@ -60,15 +60,22 @@ public class Node {
 
 	// Given a node index checks whether the node is adjacent to the current node or
 	// not
-	public boolean adjacentNode(int idx)
+	public boolean adjacentNode(int idx_)
 	{
 		boolean result = false;
 		System.out.println("Length is:");
 		System.out.print(friendNodeArray.length);
-		System.out.println("");
+
+		System.out.println("----------");
+		System.out.println("index is:");
+		System.out.print(idx_);
+
 		for (int i = 0; i < friendNodeArray.length; i++)
 		{
-			if (friendNodeArray[i] == idx)
+			System.out.println("Friend idx :");
+			System.out.print(friendNodeArray[i]);
+
+			if (friendNodeArray[i] == idx_)
 			{
 				result = true;
 				break;
@@ -79,15 +86,4 @@ public class Node {
 
 		return result;
 	}
-
-	// Returning the x and y coordinates of center of each node
-//	public double getXCoordinates()
-//	{
-//		return x;
-//	}
-//
-//	public double getYCoordinates()
-//	{
-//		return y;
-//	}
 }

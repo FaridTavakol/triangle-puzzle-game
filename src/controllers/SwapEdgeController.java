@@ -36,7 +36,7 @@ public class SwapEdgeController {
 			System.out.println("Action is possible Regular case!");
 		}
 		// Action is possible Special case
-		else
+		else if (result == 2)
 		{
 			System.out.println("Action is possible Special case");
 		}
