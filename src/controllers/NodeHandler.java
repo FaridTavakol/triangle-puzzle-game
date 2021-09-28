@@ -86,19 +86,8 @@ public class NodeHandler {
 		// active
 		int[] activeNodes = new int[3];
 
-		int i = 0;
-		for (node_names instance : node_names.values())
-		{
-			int idx = node_names.valueOf(instance.toString()).ordinal();
-
-			// This loop picks the idx of the 3 active nodes
-			if (model.getPuzzle().node[idx].state == true)
-			{
-				activeNodes[i] = idx;
-				i++;
-
-			}
-		}
+		// Getting active nodes indexes
+		activeNodes = getActiveNodes();
 
 		// Checking adjacency logic
 		// In the case where the selected nodes form a triangle
@@ -122,5 +111,55 @@ public class NodeHandler {
 		}
 
 		return adjacency;
+	}
+
+	// Method to return Active node indexes
+	public int[] getActiveNodes()
+	{
+		int i = 0;
+		int[] activeNodes = new int[3];
+
+		// Method to get active nodes
+		for (node_names instance : node_names.values())
+		{
+			int idx = node_names.valueOf(instance.toString()).ordinal();
+
+			// This loop picks the index of the 3 active nodes
+			if (model.getPuzzle().node[idx].state == true)
+			{
+				activeNodes[i] = idx;
+				i++;
+
+			}
+		}
+		return activeNodes;
+	}
+
+	// Method which finds the middle node among the three
+	public int getMiddleNode(int[] activeNodes)
+	{
+		int middleNodeIdx = 0;
+		if (model.getPuzzle().node[activeNodes[0]].adjacentNode(activeNodes[1])
+				&& model.getPuzzle().node[activeNodes[0]].adjacentNode(activeNodes[2]))
+		{
+			middleNodeIdx = model.getPuzzle().node[activeNodes[0]].getNodeIdx();
+			System.out.println("Middle Node is: ");
+			System.out.print(middleNodeIdx);
+			return middleNodeIdx;
+		} else if (model.getPuzzle().node[activeNodes[1]].adjacentNode(activeNodes[2])
+				&& model.getPuzzle().node[activeNodes[1]].adjacentNode(activeNodes[0]))
+		{
+			middleNodeIdx = model.getPuzzle().node[activeNodes[1]].getNodeIdx();
+			System.out.println("Middle Node is: ");
+			System.out.print(middleNodeIdx);
+			return middleNodeIdx;
+		} else
+		{
+			middleNodeIdx = model.getPuzzle().node[activeNodes[2]].getNodeIdx();
+			System.out.println("Middle Node is: ");
+			System.out.print(middleNodeIdx);
+			return middleNodeIdx;
+
+		}
 	}
 }

@@ -33,11 +33,19 @@ public class SwapEdgeController {
 		else if (result == 1)
 		{
 
+			int[] activeNodes = new int[3];
+			activeNodes = nodeHandler.getActiveNodes();
+			nodeHandler.getMiddleNode(activeNodes);
+			// Find the node in the middle based on this I can create two arrays of idx of
+			// size two corresponding to edges and then change their color
+
 			System.out.println("Action is possible Regular case!");
 		}
 		// Action is possible Special case
 		else if (result == 2)
 		{
+			int[] activeNodes = new int[3];
+			activeNodes = nodeHandler.getActiveNodes();
 			System.out.println("Action is possible Special case");
 		}
 	}

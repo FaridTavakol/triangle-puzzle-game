@@ -63,17 +63,9 @@ public class Node {
 	public boolean adjacentNode(int idx_)
 	{
 		boolean result = false;
-		System.out.println("Length is:");
-		System.out.print(friendNodeArray.length);
-
-		System.out.println("----------");
-		System.out.println("index is:");
-		System.out.print(idx_);
 
 		for (int i = 0; i < friendNodeArray.length; i++)
 		{
-			System.out.println("Friend idx :");
-			System.out.print(friendNodeArray[i]);
 
 			if (friendNodeArray[i] == idx_)
 			{
@@ -81,9 +73,6 @@ public class Node {
 				break;
 			}
 		}
-		System.out.println("result is :");
-		System.out.print(result);
-
 		return result;
 	}
 }
