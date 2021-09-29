@@ -34,7 +34,7 @@ public class TrianglePuzzleApp extends JFrame {
 
 	// Number of active nodes
 	private int activeNodes = 0;
-	private JLabel lblYouHaveNot;
+	private JLabel lblCongradulatoryMessage;
 
 	/**
 	 * Create the frame.
@@ -114,9 +114,6 @@ public class TrianglePuzzleApp extends JFrame {
 
 		JLabel lblScoreText = new JLabel("Score:");
 		lblScoreText.setBounds(112, 273, 45, 15);
-
-		JLabel lblCongratulatoryMessage = new JLabel("");
-		lblCongratulatoryMessage.setBounds(5, 340, 172, 0);
 
 		tglbtn1 = new JToggleButton("");
 		tglbtn1.setBounds(193, 17, 22, 21);
@@ -274,7 +271,6 @@ public class TrianglePuzzleApp extends JFrame {
 		contentPane.add(tglbtn3);
 		contentPane.add(tglbtn5);
 		contentPane.add(tglbtn1);
-		contentPane.add(lblCongratulatoryMessage);
 		contentPane.add(tglbtn6);
 		contentPane.add(btnSwapEdges);
 		contentPane.add(btnUnselectAll);
@@ -302,9 +298,9 @@ public class TrianglePuzzleApp extends JFrame {
 		labelNumberOfMovesScore.setBounds(380, 273, 70, 15);
 		contentPane.add(labelNumberOfMovesScore);
 
-		lblYouHaveNot = new JLabel("You have not yet won the game!");
-		lblYouHaveNot.setBounds(112, 313, 307, 15);
-		contentPane.add(lblYouHaveNot);
+		lblCongradulatoryMessage = new JLabel("You have not yet won the game!");
+		lblCongradulatoryMessage.setBounds(112, 313, 307, 15);
+		contentPane.add(lblCongradulatoryMessage);
 	}
 
 	public int getActiveNodes()
@@ -320,5 +316,10 @@ public class TrianglePuzzleApp extends JFrame {
 	public JLabel getScore()
 	{
 		return lblPlayerScore;
+	}
+
+	public JLabel getCongratulatoryMessage()
+	{
+		return lblCongradulatoryMessage;
 	}
 }

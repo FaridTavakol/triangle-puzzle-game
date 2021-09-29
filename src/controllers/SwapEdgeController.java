@@ -77,11 +77,16 @@ public class SwapEdgeController {
 			model.move();
 			trianglePuzzleApp.getNumberOfMoves().setText("" + model.getNumberOfMoves());
 			trianglePuzzleApp.getScore().setText("" + model.getScore());
+			if (model.isWon())
+			{
+				trianglePuzzleApp.getCongratulatoryMessage().setText("You have won the game!");
+			}
 			trianglePuzzleApp.repaint();
 			// Find the node in the middle based on this I can create two arrays of idx of
 			// size two corresponding to edges and then change their color
 			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
 			unselectNodesCtrl.unselectAllNodes();
+
 		}
 
 		// Action is possible Special case
@@ -117,6 +122,10 @@ public class SwapEdgeController {
 			model.move();
 			trianglePuzzleApp.getNumberOfMoves().setText("" + model.getNumberOfMoves());
 			trianglePuzzleApp.getScore().setText("" + model.getScore());
+			if (model.isWon())
+			{
+				trianglePuzzleApp.getCongratulatoryMessage().setText("You have won the game!");
+			}
 			trianglePuzzleApp.repaint();
 			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
 			unselectNodesCtrl.unselectAllNodes();

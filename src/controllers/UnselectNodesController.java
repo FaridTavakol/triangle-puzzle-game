@@ -20,6 +20,10 @@ public class UnselectNodesController {
 	public void unselectAllNodes()
 
 	{
+		if (model.isWon())
+		{
+			return;
+		}
 		trianglePuzzleApp.tglbtn1.setSelected(false);
 		trianglePuzzleApp.tglbtn2.setSelected(false);
 		trianglePuzzleApp.tglbtn3.setSelected(false);

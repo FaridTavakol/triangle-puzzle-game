@@ -60,6 +60,7 @@ public class Model {
 			giveBonusScore();
 		}
 		gameWon = trianglePuzzle.gameWon();
+
 	}
 
 	public int getScore()
@@ -86,6 +87,11 @@ public class Model {
 	public void setWon()
 	{
 		gameWon = true;
+	}
+
+	public void resetWon()
+	{
+		gameWon = false;
 	}
 
 }

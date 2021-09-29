@@ -16,6 +16,7 @@ public class ResetController {
 
 	public void process()
 	{
+		model.resetWon();
 		UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, app);
 		unselectNodesCtrl.unselectAllNodes();
 		// It should return value of 0
