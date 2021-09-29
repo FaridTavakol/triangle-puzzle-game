@@ -111,6 +111,8 @@ public class TrianglePuzzle {
 	public Edge[] edge = new Edge[18];
 	public Triangle[] triangle = new Triangle[6];
 
+	private int numberOfSimilarColorTriangle = 0;
+
 	/* Methods */
 	//
 	public int getNumberOfEdges()
@@ -135,6 +137,45 @@ public class TrianglePuzzle {
 		{
 			edge[i].setInitialColor();
 		}
+
+	}
+
+	// ****************************
+	public int getNumberOfSimilarColorTriangles()
+	{
+
+		return numberOfSimilarColorTriangle;
+	}
+
+	public void updateNumberOfSimilarColorTriangles()
+	{
+		int n = 0;
+		for (int i = 0; i < triangle.length; i++)
+		{
+			if (triangle[i].sameColor())
+			{
+				n++;
+			}
+		}
+		numberOfSimilarColorTriangle = n;
+	}
+
+	public boolean gameWon()
+	{
+		int n = 0;
+
+		for (int i = 0; i < triangle.length; i++)
+		{
+			if (triangle[i].winColor())
+			{
+				n++;
+			}
+		}
+		if (n == 6)
+		{
+			return true;
+		}
+		return false;
 
 	}
 

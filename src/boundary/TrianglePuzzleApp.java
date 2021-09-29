@@ -30,6 +30,7 @@ public class TrianglePuzzleApp extends JFrame {
 	public JToggleButton[] tglButtonArray;
 	private EdgeDrawer panel;
 	private ResetController resetController;
+	JLabel lblNumberOfMoves, labelNumberOfMovesScore, lblPlayerScore;
 
 	// Number of active nodes
 	private int activeNodes = 0;
@@ -92,8 +93,8 @@ public class TrianglePuzzleApp extends JFrame {
 		btnUnselectAll.setBackground(Color.DARK_GRAY);
 		btnUnselectAll.setForeground(Color.WHITE);
 
-		JLabel lblPlayerScore = new JLabel("0");
-		lblPlayerScore.setBounds(175, 273, 8, 15);
+		lblPlayerScore = new JLabel("0");
+		lblPlayerScore.setBounds(175, 273, 40, 15);
 
 		JButton btnSwapEdges = new JButton("Swap Edges");
 		btnSwapEdges.setBounds(456, 135, 120, 25);
@@ -293,13 +294,13 @@ public class TrianglePuzzleApp extends JFrame {
 		tglButtonArray[8] = tglbtn9;
 		tglButtonArray[9] = tglbtn10;
 
-		JLabel lblNumberOfMoves = new JLabel("Number of Moves:");
+		lblNumberOfMoves = new JLabel("Number of Moves:");
 		lblNumberOfMoves.setBounds(232, 273, 127, 15);
 		contentPane.add(lblNumberOfMoves);
 
-		JLabel label = new JLabel("0");
-		label.setBounds(380, 273, 70, 15);
-		contentPane.add(label);
+		labelNumberOfMovesScore = new JLabel("0");
+		labelNumberOfMovesScore.setBounds(380, 273, 70, 15);
+		contentPane.add(labelNumberOfMovesScore);
 
 		lblYouHaveNot = new JLabel("You have not yet won the game!");
 		lblYouHaveNot.setBounds(112, 313, 307, 15);
@@ -309,5 +310,15 @@ public class TrianglePuzzleApp extends JFrame {
 	public int getActiveNodes()
 	{
 		return activeNodes;
+	}
+
+	public JLabel getNumberOfMoves()
+	{
+		return labelNumberOfMovesScore;
+	}
+
+	public JLabel getScore()
+	{
+		return lblPlayerScore;
 	}
 }

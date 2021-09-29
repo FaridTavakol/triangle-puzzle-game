@@ -21,6 +21,12 @@ public class ResetController {
 		// It should return value of 0
 		model.getPuzzle().resetTrianglePuzzle();
 		model.resetNumberOfMoves();
+		model.resetPlayerScore();
+		model.resetPlayerScore();
+
+		app.getNumberOfMoves().setText("" + model.getNumberOfMoves());
+		app.getScore().setText("" + model.getScore());
+
 		app.contentPane.repaint();
 
 	}

@@ -47,4 +47,39 @@ public class Triangle {
 		return idx;
 	}
 
+	public boolean winColor()
+	{
+
+		for (int i = 0; i < edge.length; i++)
+		{
+			if (edge[i].getColor() == winningColor)
+			{
+				if (i == 2)
+				{
+					return true;
+				}
+				continue;
+
+			} else
+			{
+
+				return false;
+
+			}
+
+		}
+		return false;
+
+	}
+
+	public boolean sameColor()
+	{
+		if (edge[0].getColor() == edge[1].getColor() && edge[1].getColor() == edge[2].getColor())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 }
