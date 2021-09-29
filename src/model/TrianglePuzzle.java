@@ -113,5 +113,19 @@ public class TrianglePuzzle {
 
 	/* Methods */
 	//
+	public int getNumberOfEdges()
+	{
+		return edge.length;
+	}
+
+	public int getNumberOfNodes()
+	{
+		return node.length;
+	}
+
+	public int getNumberOfTriagnle()
+	{
+		return triangle.length;
+	}
 
 }

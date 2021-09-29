@@ -97,15 +97,9 @@ public class TrianglePuzzleApp extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-
 				swapEdgeCtrl.SwapEdge();
-				/*
-				 * / after successful excecution both active nodes and unselectAllNodes should
-				 * be envoked/
-				 */
-//				unselectNodesCtrl.unselectAllNodes();
-				// It should return value of 0
-//				activeNodes = nodeHandler.getNumberOfActiveNodes();
+				// Redraw the puzzle with the updated edges
+				contentPane.repaint();
 
 			}
 		});
@@ -140,6 +134,16 @@ public class TrianglePuzzleApp extends JFrame {
 				nodeHandler.setNodeState("tglbtn2");
 				// It can return values between 1 to 10
 				activeNodes = nodeHandler.getNumberOfActiveNodes();
+//				tglbtn1.repaint();
+//				tglbtn2.repaint();
+//				tglbtn3.repaint();
+//				tglbtn4.repaint();
+//				tglbtn5.repaint();
+//				tglbtn6.repaint();
+//				tglbtn7.repaint();
+//				tglbtn8.repaint();
+//				tglbtn9.repaint();
+//				tglbtn10.repaint();
 
 			}
 		});

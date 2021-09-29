@@ -35,9 +35,33 @@ public class Edge {
 		return idx;
 	}
 
+	// Method to return the color of the edge
 	public String getColor()
 	{
 		return color;
+	}
+
+	// Method to return the color of the edge
+	public void setColor(String s)
+	{
+		this.color = s;
+	}
+
+	// Method to check whether a given pair of node indexes belong to a given edge
+	public int belongToEdge(int[] node_idx)
+	{
+		if (node1.getNodeIdx() == node_idx[0] && node2.getNodeIdx() == node_idx[1]
+				|| node1.getNodeIdx() == node_idx[1] && node2.getNodeIdx() == node_idx[0])
+		{
+
+			return this.idx;
+		}
+		// In case it does not belong to the edge
+		else
+		{
+			return -1;
+		}
+
 	}
 
 }

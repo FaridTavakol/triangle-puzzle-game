@@ -35,7 +35,37 @@ public class SwapEdgeController {
 
 			int[] activeNodes = new int[3];
 			activeNodes = nodeHandler.getActiveNodes();
-			nodeHandler.getMiddleNode(activeNodes);
+			int middleNode = nodeHandler.getMiddleNode(activeNodes);
+			// Loop forms two arrays of size two corresponding the indexes of the nodes of
+			// the active two edges
+			int[][] edgeIdx = new int[2][2];
+			for (int i = 0, j = 0; i < activeNodes.length; i++)
+			{
+				if (activeNodes[i] != middleNode)
+				{
+					edgeIdx[j][1] = activeNodes[i];
+					edgeIdx[j][0] = middleNode;
+					j++;
+				}
+			}
+
+			// Loop through edges to find matches for the edges ready for swap
+			int[] edgePair = new int[2];
+			for (int i = 0, j = 0; i < model.getPuzzle().getNumberOfEdges(); i++)
+			{
+				for (int ii = 0; ii < 2; ii++)
+				{
+					if (model.getPuzzle().edge[i].belongToEdge(edgeIdx[ii]) != -1)
+					{
+						edgePair[j] = model.getPuzzle().edge[i].belongToEdge(edgeIdx[ii]);
+						j++;
+					}
+
+				}
+
+			}
+			swapColor(edgePair);
+
 			// Find the node in the middle based on this I can create two arrays of idx of
 			// size two corresponding to edges and then change their color
 
@@ -48,6 +78,16 @@ public class SwapEdgeController {
 			activeNodes = nodeHandler.getActiveNodes();
 			System.out.println("Action is possible Special case");
 		}
+	}
+
+	public void swapColor(int[] edgePair)
+	{
+
+		String color = new String();
+		color = model.getPuzzle().edge[edgePair[1]].getColor();
+		model.getPuzzle().edge[edgePair[1]].setColor(model.getPuzzle().edge[edgePair[0]].getColor());
+		model.getPuzzle().edge[edgePair[0]].setColor(color);
+
 	}
 
 }

@@ -126,4 +126,14 @@ public class EdgeDrawer extends JPanel {
 
 	}
 
+	public void repaint(Graphics g2d)
+	{
+		for (int i = 0; i < model.getPuzzle().edge.length; i++)
+		{
+			setColor(model.getPuzzle().edge[i], g2d);
+			drawEdge(model.getPuzzle().edge[i], g2d);
+
+		}
+	}
+
 }
