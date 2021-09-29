@@ -76,16 +76,16 @@ public class TrianglePuzzle {
 		edge[1] = new Edge(node[0], node[2], 1, "red");//
 		edge[2] = new Edge(node[1], node[2], 2, "green");//
 		edge[3] = new Edge(node[1], node[3], 3, "red");//
-		edge[4] = new Edge(node[1], node[4], 5, "blue");//
-		edge[5] = new Edge(node[2], node[4], 4, "blue");//
+		edge[4] = new Edge(node[2], node[4], 4, "blue");//
+		edge[5] = new Edge(node[1], node[4], 5, "blue");//
 		edge[6] = new Edge(node[2], node[5], 6, "red");//
 		edge[7] = new Edge(node[3], node[4], 7, "green");//
 		edge[8] = new Edge(node[4], node[5], 8, "green");//
 		edge[9] = new Edge(node[3], node[6], 9, "red");//
-		edge[10] = new Edge(node[3], node[7], 11, "blue");//
-		edge[11] = new Edge(node[4], node[7], 10, "blue");//
-		edge[12] = new Edge(node[4], node[8], 13, "blue");//
-		edge[13] = new Edge(node[5], node[8], 12, "blue");//
+		edge[10] = new Edge(node[4], node[7], 10, "blue");//
+		edge[11] = new Edge(node[3], node[7], 11, "blue");//
+		edge[12] = new Edge(node[5], node[8], 12, "blue");//
+		edge[13] = new Edge(node[4], node[8], 13, "blue");//
 		edge[14] = new Edge(node[5], node[9], 14, "red");//
 		edge[15] = new Edge(node[6], node[7], 15, "green");//
 		edge[16] = new Edge(node[7], node[8], 16, "green");//
@@ -95,15 +95,15 @@ public class TrianglePuzzle {
 		// T1
 		triangle[0] = new Triangle(1, "red", edge[0], edge[1], edge[2]);
 		// T2
-		triangle[1] = new Triangle(2, "blue", edge[3], edge[4], edge[7]);
+		triangle[1] = new Triangle(2, "blue", edge[3], edge[5], edge[7]);
 		// T3
-		triangle[2] = new Triangle(3, "green", edge[5], edge[6], edge[8]);
+		triangle[2] = new Triangle(3, "green", edge[4], edge[6], edge[8]);
 		// T4
-		triangle[3] = new Triangle(4, "green", edge[9], edge[10], edge[15]);
+		triangle[3] = new Triangle(4, "green", edge[9], edge[11], edge[15]);
 		// T5
-		triangle[4] = new Triangle(5, "red", edge[11], edge[12], edge[16]);
+		triangle[4] = new Triangle(5, "red", edge[10], edge[13], edge[16]);
 		// T6
-		triangle[5] = new Triangle(6, "blue", edge[13], edge[14], edge[17]);
+		triangle[5] = new Triangle(6, "blue", edge[12], edge[14], edge[17]);
 	}
 
 	/* Attributes */
@@ -137,6 +137,7 @@ public class TrianglePuzzle {
 		{
 			edge[i].setInitialColor();
 		}
+		numberOfSimilarColorTriangle = 0;
 
 	}
 
