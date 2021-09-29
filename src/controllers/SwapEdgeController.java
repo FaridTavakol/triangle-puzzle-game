@@ -70,7 +70,8 @@ public class SwapEdgeController {
 
 			// Find the node in the middle based on this I can create two arrays of idx of
 			// size two corresponding to edges and then change their color
-
+			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
+			unselectNodesCtrl.unselectAllNodes();
 			System.out.println("Action is possible Regular case!");
 		}
 
@@ -107,7 +108,10 @@ public class SwapEdgeController {
 			trianglePuzzleApp.repaint();
 
 			System.out.println("Action is possible Special case");
+			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
+			unselectNodesCtrl.unselectAllNodes();
 		}
+
 	}
 
 	public void swapColor(int[] edgePair)
