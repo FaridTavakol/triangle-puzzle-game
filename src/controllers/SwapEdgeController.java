@@ -29,6 +29,7 @@ public class SwapEdgeController {
 			System.out.println("Action not possible");
 
 		}
+
 		// Action is possible Regular case
 		else if (result == 1)
 		{
@@ -53,7 +54,7 @@ public class SwapEdgeController {
 			int[] edgePair = new int[2];
 			for (int i = 0, j = 0; i < model.getPuzzle().getNumberOfEdges(); i++)
 			{
-				for (int ii = 0; ii < 2; ii++)
+				for (int ii = 0; ii < edgeIdx.length; ii++)
 				{
 					if (model.getPuzzle().edge[i].belongToEdge(edgeIdx[ii]) != -1)
 					{
@@ -65,17 +66,46 @@ public class SwapEdgeController {
 
 			}
 			swapColor(edgePair);
+			trianglePuzzleApp.repaint();
 
 			// Find the node in the middle based on this I can create two arrays of idx of
 			// size two corresponding to edges and then change their color
 
 			System.out.println("Action is possible Regular case!");
 		}
+
 		// Action is possible Special case
 		else if (result == 2)
 		{
 			int[] activeNodes = new int[3];
 			activeNodes = nodeHandler.getActiveNodes();
+			// Creating Edges with their corresponding node indexes
+			int[][] edgeIdx = new int[3][2];
+			edgeIdx[0][0] = activeNodes[0];
+			edgeIdx[1][0] = activeNodes[0];
+			edgeIdx[0][1] = activeNodes[1];
+			edgeIdx[1][1] = activeNodes[2];
+			edgeIdx[2][0] = activeNodes[1];
+			edgeIdx[2][1] = activeNodes[2];
+			int[] edgePair = new int[3];
+
+			// loop to find edges based on their corresponding node indexes
+			for (int i = 0, j = 0; i < model.getPuzzle().getNumberOfEdges(); i++)
+			{
+				for (int ii = 0; ii < edgeIdx.length; ii++)
+				{
+					if (model.getPuzzle().edge[i].belongToEdge(edgeIdx[ii]) != -1)
+					{
+						edgePair[j] = model.getPuzzle().edge[i].belongToEdge(edgeIdx[ii]);
+						j++;
+					}
+
+				}
+
+			}
+			swapColorSpecialCase(edgePair);
+			trianglePuzzleApp.repaint();
+
 			System.out.println("Action is possible Special case");
 		}
 	}
@@ -87,6 +117,26 @@ public class SwapEdgeController {
 		color = model.getPuzzle().edge[edgePair[1]].getColor();
 		model.getPuzzle().edge[edgePair[1]].setColor(model.getPuzzle().edge[edgePair[0]].getColor());
 		model.getPuzzle().edge[edgePair[0]].setColor(color);
+
+	}
+
+	public void swapColorSpecialCase(int[] edgePair)
+	{
+		String[] color = new String[edgePair.length];
+
+		if (model.getPuzzle().edge[edgePair[0]].getColor() == model.getPuzzle().edge[edgePair[1]].getColor()
+				&& model.getPuzzle().edge[edgePair[1]].getColor() == model.getPuzzle().edge[edgePair[2]].getColor())
+		{ // Triangles are already the same color
+			return;
+		}
+		for (int i = 0; i < edgePair.length; i++)
+		{
+			color[i] = model.getPuzzle().edge[edgePair[i]].getColor();
+		}
+
+		model.getPuzzle().edge[edgePair[0]].setColor(color[1]);
+		model.getPuzzle().edge[edgePair[1]].setColor(color[2]);
+		model.getPuzzle().edge[edgePair[2]].setColor(color[0]);
 
 	}
 

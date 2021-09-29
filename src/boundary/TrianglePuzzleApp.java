@@ -99,7 +99,7 @@ public class TrianglePuzzleApp extends JFrame {
 			{
 				swapEdgeCtrl.SwapEdge();
 				// Redraw the puzzle with the updated edges
-				contentPane.repaint();
+//				contentPane.repaint();
 
 			}
 		});
