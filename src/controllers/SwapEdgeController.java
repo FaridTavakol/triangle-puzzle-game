@@ -144,9 +144,9 @@ public class SwapEdgeController {
 			color[i] = model.getPuzzle().edge[edgePair[i]].getColor();
 		}
 
-		model.getPuzzle().edge[edgePair[0]].setColor(color[1]);
-		model.getPuzzle().edge[edgePair[1]].setColor(color[2]);
-		model.getPuzzle().edge[edgePair[2]].setColor(color[0]);
+		model.getPuzzle().edge[edgePair[0]].setColor(color[2]);
+		model.getPuzzle().edge[edgePair[1]].setColor(color[0]);
+		model.getPuzzle().edge[edgePair[2]].setColor(color[1]);
 
 	}
 
