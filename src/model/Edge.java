@@ -8,12 +8,14 @@ public class Edge {
 		this.node2 = node2;
 		this.idx = idx;
 		this.color = color;
+		this.initColor = color;
 	}
 
 	/* Attributes */
 	public Node node1;
 	public Node node2;
 	public String color; // the color representation of the edge
+	private final String initColor; // initial starting color
 	public int idx; // index for each edge
 
 	/* Methods */
@@ -62,6 +64,11 @@ public class Edge {
 			return -1;
 		}
 
+	}
+
+	public void setInitialColor()
+	{
+		this.color = this.initColor;
 	}
 
 }

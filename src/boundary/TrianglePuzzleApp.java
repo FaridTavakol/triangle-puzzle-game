@@ -64,6 +64,10 @@ public class TrianglePuzzleApp extends JFrame {
 				unselectNodesCtrl.unselectAllNodes();
 				// It should return value of 0
 				activeNodes = nodeHandler.getNumberOfActiveNodes();
+				model.getPuzzle().resetTrianglePuzzle();
+				contentPane.repaint();
+				// You also have to reset score as well
+
 			}
 		});
 		btnResetGame.setBounds(456, 49, 119, 25);

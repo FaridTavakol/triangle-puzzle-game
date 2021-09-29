@@ -128,4 +128,14 @@ public class TrianglePuzzle {
 		return triangle.length;
 	}
 
+	public void resetTrianglePuzzle()
+	{
+
+		for (int i = 0; i < edge.length; i++)
+		{
+			edge[i].setInitialColor();
+		}
+
+	}
+
 }
