@@ -68,6 +68,7 @@ public class SwapEdgeController {
 			}
 			swapColor(edgePair);
 			trianglePuzzleApp.repaint();
+			model.increaseNumberOfMoves();
 
 			// Find the node in the middle based on this I can create two arrays of idx of
 			// size two corresponding to edges and then change their color
@@ -108,6 +109,7 @@ public class SwapEdgeController {
 			trianglePuzzleApp.repaint();
 			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
 			unselectNodesCtrl.unselectAllNodes();
+			model.increaseNumberOfMoves();
 		}
 
 	}
@@ -126,11 +128,11 @@ public class SwapEdgeController {
 	{
 		String[] color = new String[edgePair.length];
 
-		if (model.getPuzzle().edge[edgePair[0]].getColor() == model.getPuzzle().edge[edgePair[1]].getColor()
-				&& model.getPuzzle().edge[edgePair[1]].getColor() == model.getPuzzle().edge[edgePair[2]].getColor())
-		{ // Triangles are already the same color
-			return;
-		}
+//		if (model.getPuzzle().edge[edgePair[0]].getColor() == model.getPuzzle().edge[edgePair[1]].getColor()
+//				&& model.getPuzzle().edge[edgePair[1]].getColor() == model.getPuzzle().edge[edgePair[2]].getColor())
+//		{ // Triangles are already the same color
+//			return;
+//		}
 
 		// sorting index list
 		Arrays.sort(edgePair);

@@ -13,6 +13,7 @@ import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
 import controllers.NodeHandler;
+import controllers.ResetController;
 import controllers.SwapEdgeController;
 import controllers.UnselectNodesController;
 import model.Model;
@@ -28,9 +29,11 @@ public class TrianglePuzzleApp extends JFrame {
 	public JToggleButton tglbtn1, tglbtn2, tglbtn3, tglbtn4, tglbtn5, tglbtn6, tglbtn7, tglbtn8, tglbtn9, tglbtn10;
 	public JToggleButton[] tglButtonArray;
 	private EdgeDrawer panel;
+	private ResetController resetController;
 
 	// Number of active nodes
 	private int activeNodes = 0;
+	private JLabel lblYouHaveNot;
 
 	/**
 	 * Create the frame.
@@ -45,6 +48,7 @@ public class TrianglePuzzleApp extends JFrame {
 		nodeHandler = new NodeHandler(m);
 		UnselectNodesController unselectNodesCtrl = new UnselectNodesController(m, TrianglePuzzleApp.this);
 		SwapEdgeController swapEdgeCtrl = new SwapEdgeController(model, TrianglePuzzleApp.this, nodeHandler);
+		resetController = new ResetController(m, TrianglePuzzleApp.this);
 
 		setTitle("Triangle Puzzle Application (c) 2021");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,11 +65,10 @@ public class TrianglePuzzleApp extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				unselectNodesCtrl.unselectAllNodes();
+				resetController.process();
 				// It should return value of 0
 				activeNodes = nodeHandler.getNumberOfActiveNodes();
-				model.getPuzzle().resetTrianglePuzzle();
-				contentPane.repaint();
+
 				// You also have to reset score as well
 
 			}
@@ -289,11 +292,22 @@ public class TrianglePuzzleApp extends JFrame {
 		tglButtonArray[7] = tglbtn8;
 		tglButtonArray[8] = tglbtn9;
 		tglButtonArray[9] = tglbtn10;
+
+		JLabel lblNumberOfMoves = new JLabel("Number of Moves:");
+		lblNumberOfMoves.setBounds(232, 273, 127, 15);
+		contentPane.add(lblNumberOfMoves);
+
+		JLabel label = new JLabel("0");
+		label.setBounds(380, 273, 70, 15);
+		contentPane.add(label);
+
+		lblYouHaveNot = new JLabel("You have not yet won the game!");
+		lblYouHaveNot.setBounds(112, 313, 307, 15);
+		contentPane.add(lblYouHaveNot);
 	}
 
 	public int getActiveNodes()
 	{
 		return activeNodes;
 	}
-
 }

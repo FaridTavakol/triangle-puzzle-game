@@ -16,6 +16,12 @@ public class ResetController {
 
 	public void process()
 	{
-		System.out.println("You clicked Reset!");
+		UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, app);
+		unselectNodesCtrl.unselectAllNodes();
+		// It should return value of 0
+		model.getPuzzle().resetTrianglePuzzle();
+		model.resetNumberOfMoves();
+		app.contentPane.repaint();
+
 	}
 }

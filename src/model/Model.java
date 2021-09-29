@@ -8,6 +8,7 @@ public class Model {
 		trianglePuzzle = new TrianglePuzzle();
 		score = 0;
 		bonusScore = 30;
+		moveCounter = 0;
 	}
 
 	/* Attributes */
@@ -15,6 +16,7 @@ public class Model {
 	TrianglePuzzle trianglePuzzle;
 	private final int bonusScore;
 	public Edge edge;
+	public int moveCounter;
 
 	/* Methods */
 	public TrianglePuzzle getPuzzle()
@@ -30,6 +32,21 @@ public class Model {
 	public void bonusScoreIncrease()
 	{
 		score += bonusScore;
+	}
+
+	public int getNumberOfMoves()
+	{
+		return moveCounter;
+	}
+
+	public void increaseNumberOfMoves()
+	{
+		this.moveCounter++;
+	}
+
+	public void resetNumberOfMoves()
+	{
+		moveCounter = 0;
 	}
 
 }
