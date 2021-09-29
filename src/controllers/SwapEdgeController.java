@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Arrays;
+
 import boundary.TrianglePuzzleApp;
 import model.Model;
 
@@ -26,7 +28,6 @@ public class SwapEdgeController {
 		// action not possible
 		if (result == 0)
 		{
-			System.out.println("Action not possible");
 
 		}
 
@@ -72,7 +73,6 @@ public class SwapEdgeController {
 			// size two corresponding to edges and then change their color
 			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
 			unselectNodesCtrl.unselectAllNodes();
-			System.out.println("Action is possible Regular case!");
 		}
 
 		// Action is possible Special case
@@ -106,8 +106,6 @@ public class SwapEdgeController {
 			}
 			swapColorSpecialCase(edgePair);
 			trianglePuzzleApp.repaint();
-
-			System.out.println("Action is possible Special case");
 			UnselectNodesController unselectNodesCtrl = new UnselectNodesController(model, trianglePuzzleApp);
 			unselectNodesCtrl.unselectAllNodes();
 		}
@@ -133,8 +131,16 @@ public class SwapEdgeController {
 		{ // Triangles are already the same color
 			return;
 		}
+
+		// sorting index list
+		Arrays.sort(edgePair);
+		System.out.println("Modified arr[] :");
+		System.out.print(edgePair[0]);
+		System.out.print(edgePair[1]);
+		System.out.print(edgePair[2]);
 		for (int i = 0; i < edgePair.length; i++)
 		{
+
 			color[i] = model.getPuzzle().edge[edgePair[i]].getColor();
 		}
 
