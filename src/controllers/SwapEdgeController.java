@@ -128,18 +128,9 @@ public class SwapEdgeController {
 	{
 		String[] color = new String[edgePair.length];
 
-//		if (model.getPuzzle().edge[edgePair[0]].getColor() == model.getPuzzle().edge[edgePair[1]].getColor()
-//				&& model.getPuzzle().edge[edgePair[1]].getColor() == model.getPuzzle().edge[edgePair[2]].getColor())
-//		{ // Triangles are already the same color
-//			return;
-//		}
-
 		// sorting index list
 		Arrays.sort(edgePair);
-		System.out.println("Modified arr[] :");
-		System.out.print(edgePair[0]);
-		System.out.print(edgePair[1]);
-		System.out.print(edgePair[2]);
+
 		for (int i = 0; i < edgePair.length; i++)
 		{
 

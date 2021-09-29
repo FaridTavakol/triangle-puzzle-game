@@ -143,21 +143,18 @@ public class NodeHandler {
 				&& model.getPuzzle().node[activeNodes[0]].adjacentNode(activeNodes[2]))
 		{
 			middleNodeIdx = model.getPuzzle().node[activeNodes[0]].getNodeIdx();
-			System.out.println("Middle Node is: ");
-			System.out.print(middleNodeIdx);
+
 			return middleNodeIdx;
 		} else if (model.getPuzzle().node[activeNodes[1]].adjacentNode(activeNodes[2])
 				&& model.getPuzzle().node[activeNodes[1]].adjacentNode(activeNodes[0]))
 		{
 			middleNodeIdx = model.getPuzzle().node[activeNodes[1]].getNodeIdx();
-			System.out.println("Middle Node is: ");
-			System.out.print(middleNodeIdx);
+
 			return middleNodeIdx;
 		} else
 		{
 			middleNodeIdx = model.getPuzzle().node[activeNodes[2]].getNodeIdx();
-			System.out.println("Middle Node is: ");
-			System.out.print(middleNodeIdx);
+
 			return middleNodeIdx;
 
 		}
