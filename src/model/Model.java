@@ -51,13 +51,26 @@ public class Model {
 		int newTriangles = trianglePuzzle.getNumberOfSimilarColorTriangles();
 		gameWon = trianglePuzzle.gameWon();
 		score--;
-		if (oldTriangles > newTriangles)
+		if (oldTriangles - newTriangles > 1)
 		{
 
 			decreasebonusScore();
-		} else if (oldTriangles < newTriangles)
+			decreasebonusScore();
+
+		} else if (oldTriangles - newTriangles == 1)
+		{
+
+			decreasebonusScore();
+
+		} else if (newTriangles - oldTriangles > 1)
 		{
 			giveBonusScore();
+			giveBonusScore();
+
+		} else if (newTriangles - oldTriangles == 1)
+		{
+			giveBonusScore();
+
 		}
 		gameWon = trianglePuzzle.gameWon();
 

@@ -122,6 +122,7 @@ public class TrianglePuzzleApp extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+
 				nodeHandler.setNodeState("tglbtn1");
 				// It can return values between 1 to 10
 				activeNodes = nodeHandler.getNumberOfActiveNodes();
